@@ -1,12 +1,22 @@
 function onScanSuccess(decodedText, decodedResult) {
-    console.log(`Code scanned = ${decodedText}`, decodedResult);
+    console.log(`Code matched = ${decodedText}`, decodedResult);
     const element = $("#code");
     const textToReplace = element.text();
     const newText = decodedResult.decodedText;
-    $("#qr-shaded-region").style("border-width","199px 78px");
     element.text(newText); 
 }
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"qr-reader", { fps: 10, qrbox: 400 });
-html5QrcodeScanner.render(onScanSuccess);
+let qrboxFunction = function(viewfinderWidth, viewfinderHeight) {
+    let minEdgePercentage = 0.2; // 70%
+    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+    return {
+        width: 300,
+        height: 60
+    };
+}
 
+let html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader",
+    { fps: 10, qrbox: qrboxFunction },
+    /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess);
