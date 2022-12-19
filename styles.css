@@ -13,6 +13,7 @@ body{
     width: 21%;
     margin: 10px;
     z-index: 1000;
+    top: 0;
 }
 
 .logo>img{
