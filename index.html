@@ -25,10 +25,12 @@
 
             $("#qrb").click(function(){
                 $("#botones").css("display","none");
+                $("#qrreaderblock").css("display","");
             });
 
             $("#barcodeb").click(function(){
                 $("#botones").css("display","none");
+                $("#qrreaderblock").css("display","");
             });
         });
     </script>
@@ -40,7 +42,7 @@
         <h1 id="code" ></h1>
     </div>
     
-    <div id="botones" class="flex-container" style="display: none;">
+    <div id="botones" class="flex-container">
         <div id="qrb" class="flex-items">
             <div class="imgqrflex">
                 <div class="flex-items-img">
@@ -62,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="qrreaderblock">
+    <div id="qrreaderblock" class="qrreaderblock" style="display: none;">
         <div class="qrreaderblock">
             <div class="center">
                 <div id="qr-reader" style="width: 100%;"></div>
