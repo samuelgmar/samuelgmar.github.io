@@ -22,26 +22,56 @@
                 $("#close_new_boleto").css("display","none")
                 $("#contain").css("display","none")
             });
+
+            $("#qrb").click(function(){
+                $("#botones").css("display","none");
+            });
+
+            $("#barcodeb").click(function(){
+                $("#botones").css("display","none");
+            });
         });
     </script>
     <title>Document</title>
 </head>
 <body>
-    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <h1 id="code" ></h1>
-    <div id="qr-reader" style="width: 600px"></div>
-    <div id="reader_loteria">
-        <a href="javascript:void(0)" id="close_new_boleto" style="display: none;">CERRAR LECTOR QR</a>
-        <a href="javascript:void(0)" id="trigger_new_boleto" style="">COMPROBAR BOLETO</a>
-        <a id="scan_again" href="javascript:void(0)" style="display: none;">Escanear otro</a>
-        <div id="result_premio"></div>
-        <div data-v-35411cc1="" id="contain" class="qrcode-stream-wrapper" style="display: none;">
-            <div id="barcodeScannerUI" class="imgUser ">
-                
+    <div class="logo">   
+        <img src="logo_pie.png" alt="">
+        <h1 id="code" ></h1>
+    </div>
+    
+    <div id="botones" class="flex-container" style="display: none;">
+        <div id="qrb" class="flex-items">
+            <div class="imgqrflex">
+                <div class="flex-items-img">
+                    <img class="img1" src="qr.png" alt="">
+                </div>
+                <div class="flex-items-img">
+                    <h1 class="titlimg">COMPROBAR MEDIANTE CODIGO QR</h1>
+                </div>         
             </div>
         </div>
-    </div> 
+        <div id="barcodeb" class="flex-items">
+            <div class="imgqrflex" >
+                <div class="flex-items-img" style="    margin: 12% 12%;">
+                    <img class="img2" src="barcode.png" alt="">
+                </div>
+                <div class="flex-items-img" style="margin-top: -30%;">
+                    <h1 class="titlimg">COMPROBAR MEDIANTE CODIGO DE BARRAS</h1>
+                </div>         
+            </div>
+        </div>
+    </div>
+    <div class="qrreaderblock">
+        <div class="qrreaderblock">
+            <div class="center">
+                <div id="qr-reader" style="width: 100%;"></div>
+                <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
+
 
