@@ -26,11 +26,61 @@
             $("#qrb").click(function(){
                 $("#botones").css("display","none");
                 $("#qrreaderblock").css("display","");
+                function onScanSuccess(decodedText, decodedResult) {
+    console.log(`Code matched = ${decodedText}`, decodedResult);
+    const element = $("#code");
+    const textToReplace = element.text();
+    const newText = decodedResult.decodedText;
+    $("#reader").css("border","0px");
+    element.text(newText); 
+}
+let qrboxFunction = function(viewfinderWidth, viewfinderHeight) {
+    let minEdgePercentage = 0.2; // 70%
+    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+    return {
+        width: qrboxSize,
+        height: qrboxSize
+    };
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader",
+    { fps: 60, qrbox: qrboxFunction },
+    /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess);
+                $("#qr-reader__dashboard").css("width","90%");
+                $("#qr-reader__dashboard_section").css("width","90%");
             });
 
             $("#barcodeb").click(function(){
                 $("#botones").css("display","none");
                 $("#qrreaderblock").css("display","");
+                function onScanSuccess(decodedText, decodedResult) {
+    console.log(`Code matched = ${decodedText}`, decodedResult);
+    const element = $("#code");
+    const textToReplace = element.text();
+    const newText = decodedResult.decodedText;
+    $("#reader").css("border","0px");
+    element.text(newText); 
+}
+let qrboxFunction = function(viewfinderWidth, viewfinderHeight) {
+    let minEdgePercentage = 0.2; // 70%
+    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+    return {
+        width: 300,
+        height: 60
+    };
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader",
+    { fps: 60, qrbox: qrboxFunction },
+    /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess);
+                $("#qr-reader__dashboard").css("width","90%");
+                $("#qr-reader__dashboard_section").css("width","90%");
             });
         });
     </script>
